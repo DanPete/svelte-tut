@@ -24,8 +24,3 @@ export const actions = {
 		return { success: true };
 	}
 };
-
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function post({ request }) {
-	return { body: 'test', status: 200 };
-}

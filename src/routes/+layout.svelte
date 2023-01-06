@@ -16,16 +16,21 @@
 	console.log(browser, building, dev, version);
 
 	$: ({ all_episodes } = data);
+	import './page.css';
 </script>
 
 <Header />
 
-{#if $navigating}
+<!-- {#if $navigating}
 	<div class="loading {$navigating && 'active'}">Loading...</div>
-{/if}
+{/if} -->
 
 <main>
 	<div class="main">
+		<!-- <div class="container">
+			<p class="test">test</p>
+		</div> -->
+
 		<slot />
 	</div>
 	<aside>
@@ -35,18 +40,33 @@
 
 <Footer />
 
-<style>
+<style lang="postcss">
+	@custom-media --viewport-medium (width <= 1024px);
 	main {
-		background: #efefef;
-		padding: 1rem;
-	}
-
-	main {
+		container-type: inline-size;
 		display: grid;
 		grid-template-columns: 1fr 300px;
 		grid-gap: 1rem;
 	}
 
+	.container {
+		container-type: inline-size;
+	}
+	.main {
+		background: #efefef;
+		padding: 1rem;
+		& .test {
+			font-size: 50px;
+			margin: 0;
+			color: red;
+			@media (--viewport-medium) {
+				color: blue;
+			}
+			&:hover {
+				color: rebeccapurple;
+			}
+		}
+	}
 	.loading {
 		position: fixed;
 		inset: 0;

@@ -1,0 +1,12 @@
+.container {
+	background: lightgreen;
+}
+
+@container (min-width: 700px) {
+	.container {
+		background: pink;
+	}
+	.test {
+		font-size: 100px !important;
+	}
+}
